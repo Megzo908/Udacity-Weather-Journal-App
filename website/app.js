@@ -1,4 +1,6 @@
 // Global Variables
+
+// Is it safe to put the api keys on the front end like that ??
 const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather?zip='
 const API_KEY = '&appid=a367587e8fdf0b056f1008204dea2b80&units=metric'
 const SERVER_URL = 'http://localhost:3000/'

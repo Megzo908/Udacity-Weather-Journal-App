@@ -4,8 +4,8 @@ body {
 }
 
 #app {
-  display: grid;
-  grid-auto-rows: minmax(150px, auto);
+  display: flex;
+  flex-direction: column;
   /* grid-template-columns:  */
   height: 100vh;
   background: #f23557;
@@ -14,9 +14,14 @@ body {
   grid-gap: 1em;
   font-size: 20px;
   font-family: 'Oswald', sans-serif;
+  align-items: center;
 }
 
 .holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .entry {
@@ -58,14 +63,16 @@ input {
 }
 
 button {
-  width: 400px;
+  width: 300px;
   height: 100px;
   background: #3b4a6b;
   color: #f0d43a;
   font-size: 26px;
   font-family: 'Oswald', sans-serif;
   border: none;
+  border-radius: 50px;
   box-shadow: 2px 4px 5px #444;
+  cursor: pointer;
 }
 h1 {
   font-size: 36px;
