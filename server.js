@@ -33,6 +33,8 @@ app.post('/add', (req, res) => {
   projectData = {
     temp: req.body.data.main.temp,
     date: req.body.newDate,
-    content: req.body.feelings,
+    weatherCondition: req.body.weatherCondition,
+    country: req.body.country,
+    weatherIcon: req.body.weatherIcon,
   }
 })

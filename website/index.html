@@ -9,35 +9,27 @@
       href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div id="app">
-      <div class="holder headline">Weather Journal App</div>
-      <div class="holder zip">
-        <label for="zip">Enter Zipcode here</label>
-        <input type="text" id="zip" placeholder="enter zip code here" />
-      </div>
-      <div class="holder feel">
-        <label for="feelings">How are you feeling today?</label>
-        <textarea
-          class="myInput"
-          id="feelings"
-          placeholder="Enter your feelings here"
-          rows="9"
-          cols="50"
-        ></textarea>
-        <button id="generate" type="submit">Generate</button>
-      </div>
-      <div class="holder entry">
-        <div class="title">Most Recent Entry</div>
-        <div id="entryHolder">
-          <div id="date"></div>
-          <div id="temp"></div>
-          <div id="content"></div>
+    <article class="widget">
+      <div class="weatherIcon"><img src="" class="wi"></img></div>
+      <div class="weatherInfo">
+        <div class="temperature"><span>25&deg;</span></div>
+        <div class="description">
+          <div class="weatherCondition">CLOUDY</div>
+          <div class="place">New York, New York</div>
         </div>
       </div>
-    </div>
+      <div class="date">1st Jan</div>
+      <div class="action">
+        <label for="countries">Select Country</label>
+        <select name="countries" id="countries">
+          <option value="default">-- Select Country</option>
+        </select>
+        <button id="generate" type="submit">Show Weather Details</button>
+      </div>
+    </article>
     <script src="app.js" defer></script>
   </body>
 </html>

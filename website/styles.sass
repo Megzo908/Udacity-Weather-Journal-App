@@ -1,0 +1,135 @@
+@import url(https://fonts.googleapis.com/css?family=Poiret+One)
+@import url(https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css)
+
+$border-radius: 20px
+
+body
+    background-color: #A64253
+    font-family: Arial, Helvetica, sans-serif
+
+.widget
+    position: absolute
+    top: 50%
+    left: 50%
+    display: flex
+    height: 300px
+    width: max-content
+    transform: translate(-50%, -50%)
+    flex-wrap: wrap
+    border-radius: $border-radius
+    box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15)
+
+.weatherIcon
+    flex: 1 100%
+    height: 60%
+    border-top-left-radius: $border-radius
+    border-top-right-radius: $border-radius
+    background: #fafafa7a
+    font-family: weathericons
+    display: flex
+    align-items: center
+    justify-content: space-around
+    font-size: 100px
+
+    img
+        padding-top: 30px
+
+.weatherInfo
+    flex: 0 0 70%
+    height: 40%
+    background: #080705
+    border-bottom-left-radius: $border-radius
+    display: flex
+    align-items: center
+    color: white
+
+    .temperature
+        flex: 0 0 40%
+        width: 100%
+        font-size: 65px
+        display: flex
+        justify-content: space-around
+
+    .description
+        flex: 0 60%
+        display: flex
+        flex-direction: column
+        width: 100%
+        height: 100%
+        justify-content: center
+
+    .weatherCondition
+        text-transform: uppercase
+        font-size: 35px
+        font-weight: 100
+        text-align: center
+
+    .place
+        font-size: 15px
+        text-align: center
+
+.date
+    flex: 0 0 30%
+    height: 40%
+    background: #70C1B3
+    border-bottom-right-radius: $border-radius
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    align-items: center
+    color: white
+    font-size: 30px
+    font-weight: 800
+    text-align: center
+
+p
+    position: fixed
+    bottom: 0%
+    right: 2%
+a
+    text-decoration: none
+    color: #E4D6A7
+    font-size: 10px
+
+button
+    -webkit-border-radius: 20
+    -moz-border-radius: 20
+    border-radius: 28px
+    color: #ffffff
+    font-size: 20px
+    background: #080705
+    padding: 10px 20px 10px 20px
+    text-decoration: none
+    border: none
+    width: fit-content
+    height: 50px
+button:hover
+    background: #70c1b3
+    text-decoration: none
+    cursor: pointer
+
+#countries
+    border: none
+    border-radius: 28px
+    width: min-content
+    height: 25px
+
+.action
+    display: flex
+    flex-direction: column
+    gap: 20px
+    width: 100%
+    align-items: center
+    position: absolute
+    top: 100%
+    margin: 0 auto
+
+    label
+        color: white
+        font-size: 32px
+
+    input
+        border: none
+        border-radius: 28px
+        height: 25px
+        width: 200px
