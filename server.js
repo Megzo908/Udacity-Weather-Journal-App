@@ -1,40 +1,41 @@
-// Body Parser
-const bodyParser = require('body-parser')
-const port = 3000
+require('dotenv').config()
+const axios = require('axios')
 
-// Setup empty JS object to act as endpoint for all routes
-projectData = {}
+const APIKEYS = {
+  URL: process.env.BASE_URL,
+  KEY: process.env.API_KEY,
+}
 
-// Require Express to run server and routes and start an instance of app
+weatherData = {}
+
+// Server setup
+
+//Express
 const express = require('express')
 const app = express()
-// Initialize the main project folder
 app.use(express.static('website'))
 
-/* Middleware*/
-//Here we are configuring express to use body-parser as middle-ware.
+//Body Parser
+const bodyParser = require('body-parser')
+const port = 3000
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-// Cors for cross origin allowance
+//CORS
 const cors = require('cors')
-app.use(cors())
+app.use(cors({ origin: '*' }))
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`)
 })
 
-// Setup Server
-app.get('/send', (req, res) => {
-  res.send(projectData)
-})
-
-app.post('/add', (req, res) => {
-  projectData = {
-    temp: req.body.data.main.temp,
-    date: req.body.newDate,
-    weatherCondition: req.body.data.weather[0].description,
-    country: req.body.data.name,
-    weatherIcon: req.body.data.weatherIcon,
-  }
+//Recieving city name, using it to make a get request from weather API then sending the data to the frontend
+app.post('/postcityselector', (req, res) => {
+  axios.get(APIKEYS.URL + req.body.city + APIKEYS.KEY).then(response => {
+    weatherData.city = response.data
+    app.get('/fulldata', (req, res) => {
+      res.send(weatherData.city)
+    })
+    res.sendStatus(200)
+  })
 })
