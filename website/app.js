@@ -1,5 +1,4 @@
 // Global Variables
-const SERVER_URL = 'http://localhost:3000/'
 const COUNTRIES_NAMES_API = 'https://restcountries.com/v3.1/all'
 // Create a new date instance
 const CURRENTDATE = new Date().toDateString()
@@ -31,10 +30,10 @@ const countriesNames = async () => {
 // Posting city name to server then getting data back after the request to API has been made
 const Main = async () => {
   const citySelector = document.querySelector('#countries').value
-  axios.post(`${SERVER_URL}postcityselector`, { city: citySelector })
+  axios.post('/postcityselector', { city: citySelector })
 
   setTimeout(async () => {
-    const data = await axios.get(`${SERVER_URL}fulldata`)
+    const data = await axios.get('/fulldata')
     // Update UI with API data
     weatherIcon.src = `http://openweathermap.org/img/wn/${data.data.weather[0].icon}@4x.png`
     date.innerText = CURRENTDATE
