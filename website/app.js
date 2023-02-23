@@ -16,14 +16,19 @@ const countriesNames = async () => {
 
   const countriesList = await (await fetch(COUNTRIES_NAMES_API)).json()
 
-  countriesList.splice(38, 1)
+  // Extract capital names from each country object
+  const capitalNames = countriesList
+    .filter(country => country.capital && country.capital.length > 0)
+    .map(country => country.capital[0])
 
-  countriesList.forEach(country => {
+  // Sort capital names alphabetically
+  capitalNames.sort()
+
+  // Create an option element for each capital name
+  capitalNames.forEach(capitalName => {
     const option = document.createElement('option')
-    if (country.capital) {
-      option.innerText = `${country.capital[0]}`
-      select.append(option)
-    }
+    option.innerText = capitalName
+    select.append(option)
   })
 }
 
